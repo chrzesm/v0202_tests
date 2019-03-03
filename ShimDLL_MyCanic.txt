@@ -1,0 +1,24 @@
+﻿Test of communication between app and shim
+
+
+//MyCanic connected to the app, logs Joey's v0202 shim (THANK YOU JOEY!!!)
+//Joey's shem does not filter the flag 140 from the app
+//Invalid Vendor ID!!!!
+
+0.000s ++ PTConnect(5:CAN, 0x00000000, 0x005E803C)
+  returning ChannelID: 5
+  6.264s 0:STATUS_NOERROR
+
+6.264s ++ PTConnect(6:ISO15765, 0x00000140, 0x0012F868)
+  Flags: 6:?cflag? 8:CAN_29BIT_ID
+  returning ChannelID: 6
+  6.264s 0:STATUS_NOERROR
+
+6.265s ** PTReadVersion(0x03738D1C, 0x037BFF7C, 0x037BFD6C)
+  Firmware: 02.46
+  DLL:      02.46
+  API:      02.02
+  6.294s 0:STATUS_NOERROR
+
+6.294s ** PTIoctl(0, 66816:?vendor?, 0x0012E77C, 0x005E8060)
+  6.294s 1:ERR_NOT_SUPPORTED 'Ioctl function not supported'

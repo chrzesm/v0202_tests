@@ -1,0 +1,37 @@
+﻿//MyCANIC protocol and channel tests using v0404 shim by Joey
+//MyCANIC uses chan 5 and 6 together
+
+0.000s ++ PTOpen(*NULL*, 0x00494118)
+  returning DeviceID: 18
+  5.322s 0:STATUS_NOERROR
+
+5.322s ** PTReadVersion(18, 0x0012F1EC, 0x0012F2EC, 0x0012F3EC)
+  Firmware: 02.46
+  DLL:      02.46
+  API:      04.04
+  5.353s 0:STATUS_NOERROR
+
+5.353s -- PTClose(18)
+  5.462s 0:STATUS_NOERROR
+
+5.462s ++ PTOpen(*NULL*, 0x00494118)
+  returning DeviceID: 18
+  6.025s 0:STATUS_NOERROR
+
+13.653s ++ PTConnect(18, 5:CAN, 0x00000000, 500000, 0x004CDA58)
+  returning ChannelID: 5
+  13.655s 0:STATUS_NOERROR
+
+15.053s ++ PTConnect(18, 6:ISO15765, 0x00000000, 500000, 0x004CDA5C)
+  returning ChannelID: 6
+  15.055s 0:STATUS_NOERROR
+
+17.322s ++ PTConnect(18, 3:ISO9141, 0x00000000, 10400, 0x004CDA68)
+  returning ChannelID: 3
+  17.324s 0:STATUS_NOERROR
+
+38.838s -- PTDisconnect(3)
+  38.932s 0:STATUS_NOERROR
+
+43.571s -- PTClose(18)
+  43.682s 0:STATUS_NOERROR

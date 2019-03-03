@@ -1,0 +1,35 @@
+﻿//CarDAQ+ protocol and channel tests using v0404 shim by Joey
+//CarDAQ+ cannot use chan 5 and 6 together!!!!!
+
+0.000s ++ PTOpen(*NULL*, 0x00494118)
+  returning DeviceID: 0
+  7.681s 0:STATUS_NOERROR
+
+7.681s ** PTReadVersion(0, 0x0012F1EC, 0x0012F2EC, 0x0012F3EC)
+  Firmware: 01.09.14 CarDAQ-Plus Serial#: 3857 (CarDAQ-Plus3857)
+  DLL:      01.09.38 CarDAQ-Plus J2534 Windows x86 DLL
+  API:      04.04
+  7.713s 0:STATUS_NOERROR
+
+7.713s -- PTClose(0)
+  7.719s 0:STATUS_NOERROR
+
+7.719s ++ PTOpen(*NULL*, 0x00494118)
+  returning DeviceID: 0
+  8.523s 0:STATUS_NOERROR
+
+14.445s ++ PTConnect(0, 5:CAN, 0x00000000, 500000, 0x004CDA58)
+  returning ChannelID: 101
+  14.453s 0:STATUS_NOERROR
+
+16.723s ++ PTConnect(0, 6:ISO15765, 0x00000000, 500000, 0x004CDA5C)
+  returning ChannelID: 0
+  16.723s 20:ERR_CHANNEL_IN_USE 'ProtocolID (6) is in conflict with open channel'
+
+23.594s ++ PTConnect(0, 3:ISO9141, 0x00000000, 10400, 0x004CDA68)
+  returning ChannelID: 102
+  23.598s 0:STATUS_NOERROR
+
+  36.906s 16:ERR_BUFFER_EMPTY
+38.198s -- PTDisconnect(101)
+  38.202s 0:STATUS_NOERROR

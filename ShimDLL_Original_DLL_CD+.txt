@@ -1,0 +1,34 @@
+Test of communication between shim and DLL
+
+//CarDAQ+ connected to the app, logs from original CD+ dll logger thru Joey's v0202 shim (THANK YOU JOEY!!!)
+//Joey's shem perfectly filters the flag 140 from the app (!!!)
+//CarDAQ+ cannot use chan 5 and 6 together!!!!!
+//Invalid Vendor ID!!!! 
+
+Sun Mar 03 08:59:24 2019
+0.00000s **PTConnect(dev=0, ch=CAN, fl=00000000, baud=0)
+Sun Mar 03 08:59:24 2019
+0.00000s **Implicit PTOpen(pName=<NULL>) DLL version 01.09.14
+ WSAStartup OK
+ERROR(234): Unable to locate DrewTech J2534 PassThru device
+ get_inet_interfaces: added IF[0] IP=127.0.0.1 Flags=0x17
+  Bcast=255.255.255.255
+  Mask=255.0.0.0 
+Broadcast ping on 127.255.255.255
+USB scan
+ > ver01.09.14 CarDAQ-Plus3857 (*USB1)
+select_cardaq_from_list says you picked 0
+  open usb socket
+  opening usb *USB1
+
+0.84400s **PTConnect(dev=0, ch=ISO15765, fl=00000100, baud=0)
+  <Error: 0x3: 'ProtocolID (6) is in conflict with open channel' in PassThruConnect
+
+9.40600s **PTReadVersion(dev=0)
+ Firm:01.09.14 CarDAQ-Plus Serial#: 3857 (CarDAQ-Plus3857)
+ DLL :01.09.14 CarDAQ-Plus J2534 Windows x86 DLL 
+ API:02.02
+
+9.42200s **PTIoctl(dev=0, ch=other ioctl=?vendor?)
+  <Error: 0xf: 'Ioctl (66816) is invalid' in PassThruIoctl
+socket close

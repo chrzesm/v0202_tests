@@ -1,0 +1,21 @@
+I tested logs from:
+
+1. v0202 shim - communication between app and shim
+- for CD+ (ShimDLL_CD.txt)
+- for Mycanic (ShimDLL_MyCanic.txt)
+
+2. CD+ v0202 dll file (ShimDLL_Original_DLL_CD+.txt) - communication between shim and dll
+
+3. CD+ v0404 dll file (Original_DLL_Original_DLL_CD+.txt) -communication between app and dll
+CD+ v0404
+
+4. Protocols test for MyCanic
+
+5. Protocols test for CD+
+
+CONCLUSIONS:
+
+1. The v0202 shim filters flag 040 from app to dll
+2. CD+ cannot use chan 5 and 6 at the same time (contraty to CD+ manual desrtiption saying it has CAN1 and CAN2 protocols)
+3. App do not test J1850 presence, so MyCanic can do the work (!!)
+4. App crashes with MyCANIC when it does not accept vendor ID 66816

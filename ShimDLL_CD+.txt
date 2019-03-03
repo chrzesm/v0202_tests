@@ -1,0 +1,24 @@
+﻿Test of communication between app and shim
+
+//CarDAQ+ connected to the app, logs Joey's v0202 shim (THANK YOU JOEY!!!)
+//Joey's shem perfectly filters the flag 140 from the app (!!!)
+//CarDAQ+ cannot use chan 5 and 6 together!!!!!
+//Invalid Vendor ID!!!!
+
+0.000s ++ PTConnect(5:CAN, 0x00000000, 0x005E803C)
+  returning ChannelID: 5
+  106.317s 0:STATUS_NOERROR
+
+106.317s ++ PTConnect(6:ISO15765, 0x00000140, 0x0012F868)
+  Flags: 6:?cflag? 8:CAN_29BIT_ID
+  returning ChannelID: 0
+  106.317s 3:ERR_INVALID_PROTOCOL_ID 'ProtocolID (6) is in conflict with open channel'
+
+114.890s ** PTReadVersion(0x03608C64, 0x035C0D0C, 0x001A9E84)
+  Firmware: 01.09.14 CarDAQ-Plus Serial#: 3857 (CarDAQ-Plus3857)
+  DLL:      01.09.14 CarDAQ-Plus J2534 Windows x86 DLL 
+  API:      02.02
+  114.894s 0:STATUS_NOERROR
+
+114.896s ** PTIoctl(0, 66816:?vendor?, 0x0012E77C, 0x005E8060)
+  114.896s 15:ERR_INVALID_IOCTL_ID 'Ioctl (66816) is invalid'
